@@ -30,36 +30,34 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-DJANGO_APPS = [
+DJANGO_APPS = (
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-]
+)
 
-LOCAL_APPS = [
-    'apps.home',
-    'apps.users',
-    'apps.accounts',
-    'apps.authy',
-    'apps.notifications',
-    'apps.portalem',
-    #'apps.pagos',
-    'apps.tramites',
-    # 'djrill',
-    'apps.generador_de_avisos',
-    'apps.migratorio',
-    'apps.marcas',
-    'apps.payments',
-]
+LOCAL_APPS = (
+    'apps.quickstart',
+)
 
-THIRD_PARTY_APPS = []
+THIRD_PARTY_APPS = (
+    'rest_framework',
+
+)
 
 
 INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS + THIRD_PARTY_APPS
 
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAdminUser',
+    ],
+    'PAGE_SIZE': 10
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
